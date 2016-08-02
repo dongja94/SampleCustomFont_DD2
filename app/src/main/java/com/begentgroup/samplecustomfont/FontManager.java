@@ -30,6 +30,7 @@ public class FontManager {
         Typeface typeface = fontMap.get(fontName);
         if (typeface == null) {
             FontData fd = FontData.searchFont(fontName);
+            if (fd == null) return null;
             typeface = Typeface.createFromAsset(context.getAssets(), fd.fileName);
             fontMap.put(fontName, typeface);
         }
